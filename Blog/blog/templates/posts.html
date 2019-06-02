@@ -1,0 +1,14 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<ul class="post-list">
+  {% for article in articles %}
+  <a class="post-link" href="{% url 'post_details' id=article.id %}">
+    <li class="post-item">
+      <h2>{{article.title}}</h2>
+      <p>By {{article.user.username}}</p>
+    </li>
+  </a>
+  {% endfor %}
+</ul>
+{% endblock %}

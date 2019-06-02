@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="post-details-body">
+  <h3>Topic: {{post.topic}}</h3>
+  <p>{{post.body|linebreaksbr}}</p>
+  <h4>Date Published: {{post.published_date}}</h4>
+  <h4>Author: {{post.user.username}}</h4>
+  {% if post.user == request.user %}
+    <p>
+      <a class="edit-post" href="{% url 'edit_post' id=post.id %}">Edit Post</a>
+    </p>
+  {% endif %}
+</div>
+<div class="post-details-comments">
+  <h4 class="comment-heading">Comments</h4>
+  <ul class="comment-list">
+    {% for comment in post.sort_comment_set %}
+    <li class="comment-item">
+      <p>{{comment.name}}:</p>
+      <p>{{comment.message}}</p>
+    </li>
+    {% endfor %}
+  </ul>
+  <form class="comment-form" action="{% url 'create_comment' %}" method="post">
+    {% csrf_token %}
+
+    <fieldset class="comment-fieldset">
+      <legend>Add a comment</legend>
+      <input type="hidden" name="post_id" value="{{post.pk}}">
+      {{comment_form.as_p}}
+      <input type="submit" name="comment-submit" value="Submit">
+    </fieldset>
+  </form>
+</div>
+{% endblock %}

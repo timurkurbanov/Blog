@@ -1,0 +1,33 @@
+"""blog URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/2.1/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path
+from blog.views import root, posts_page, post_show, create_comment, new_post, create_post, edit_post, user_posts, login_view, logout_view, signup
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', root),
+    path('posts/', posts_page, name="home"),
+    path('posts/<int:id>', post_show, name="post_details"),
+    path('posts/edit/<int:id>', edit_post, name="edit_post"),
+    path('posts/user', user_posts, name="user_posts"),
+    path('comments/new', create_comment, name="create_comment"),
+    path('new_post/', new_post, name="new_post"),
+    path('create_post/', create_post, name="create_post"),
+    path('login/', login_view, name="login"),
+    path('logout/', logout_view, name="logout"),
+    path('signup/', signup, name="signup"),
+]

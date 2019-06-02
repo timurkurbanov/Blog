@@ -1,0 +1,145 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #F9FFFD;
+}
+
+.site-header > h1 {
+  text-align: center;
+  background-color: #354F52;
+  font-family: 'Quicksand', sans-serif;
+  color: white;
+  margin: 0;
+  padding: 10px 0;
+}
+
+.post-list {
+  list-style-type: none;
+  padding:0;
+  margin: 30px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.post-link {
+  box-shadow: 5px 10px #888888;
+  background-color: lightgrey;
+  border-radius: 15px;
+  padding: 5px;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  font-family: 'Quicksand', sans-serif;
+  color: #2F3E46;
+}
+
+.post-link:hover {
+  color: #16C172;
+  background-color: #D5FFD9;
+}
+
+.site-nav {
+  text-align: center;
+}
+
+.site-nav > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 1em 0;
+  background-color: #91AEC1;
+;
+}
+
+.site-nav-item {
+  display: inline-block;
+  margin-right: 30px;
+}
+
+.site-nav-item:last-child {
+  margin-right: 0;
+}
+
+.site-nav-item > a {
+  text-decoration: none;
+  color: #DDFDFE;
+}
+
+.site-nav-item > a:hover {
+  color: #508CA4;
+}
+
+.post-details-body {
+  margin: 30px 30px;
+  color: #2F3E46;
+}
+
+.post-details-body > h4 {
+  margin: 10px 0;
+}
+
+a.edit-post {
+  text-decoration: none;
+  color: #16C172;
+}
+
+a.edit-post:hover {
+  color: 	#606060;
+}
+
+.post-details-comments {
+  margin: 30px 30px;
+  color: #2F3E46;
+}
+
+.comment-list {
+  list-style-type: none;
+  padding: 0 30px;
+}
+
+.comment-item {
+  background-color: #52796F;
+  color: #F9FFFD;
+  margin: 10px 0;
+  padding: 5px 20px;
+  border-radius: 10px;
+}
+
+.comment-fieldset {
+  text-align: center;
+}
+
+form.article-form {
+  margin: 30px;
+}
+
+form.signup_form {
+  margin: 30px;
+}
+
+form.login_form {
+  margin: 30px;
+}
+
+@media (max-width: 768px) {
+  .post-list {
+    grid-template-columns: 1fr 1fr;
+  }
+  .site-nav-item {
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .post-list {
+    grid-template-columns: 1fr;
+  }
+  .site-nav-item {
+    display: block;
+    margin-right: 0;
+    padding: 5px;
+  }
+}
